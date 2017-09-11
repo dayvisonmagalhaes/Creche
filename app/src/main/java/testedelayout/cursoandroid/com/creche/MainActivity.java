@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String teste;
+
         Gson g = new GsonBuilder().registerTypeAdapter(Estado.class,new EstadoDesc()).create();
 
 
