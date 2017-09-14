@@ -8,6 +8,7 @@ public class Estado implements Serializable{
     private int estadoId;
     private String estadoNome;
     private String estadoSigla;
+    private String teste;
 
     public Estado() {
     }
