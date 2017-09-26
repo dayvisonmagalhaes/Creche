@@ -5,42 +5,41 @@ import java.io.Serializable;
 
 public class Estado implements Serializable{
 
-    private int estadoId;
-    private String estadoNome;
-    private String estadoSigla;
-    private String teste1;
+    private int id;
+    private String nome;
+    private String sigla;
 
     public Estado() {
     }
 
-    public Estado(int estadoId, String estadoNome, String estadoSigla) {
-        this.estadoId = estadoId;
-        this.estadoNome = estadoNome;
-        this.estadoSigla = estadoSigla;
+    public Estado(int id, String nome, String sigla) {
+        this.id = id;
+        this.nome = nome;
+        this.sigla = sigla;
     }
 
-    public int getEstadoId() {
-        return estadoId;
+    public int getId() {
+        return id;
     }
 
-    public void setEstadoId(int estadoId) {
-        this.estadoId = estadoId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getEstadoNome() {
-        return estadoNome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEstadoNome(String estadoNome) {
-        this.estadoNome = estadoNome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEstadoSigla() {
-        return estadoSigla;
+    public String getSigla() {
+        return sigla;
     }
 
-    public void setEstadoSigla(String estadoSigla) {
-        this.estadoSigla = estadoSigla;
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
 }

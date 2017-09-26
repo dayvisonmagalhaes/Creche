@@ -14,7 +14,7 @@ import retrofit2.http.Path;
 
 public interface IRetrofitCreche {
 
-    @GET("get/estados")
+    @GET("Estado/listar")
     Call <List<Estado>> getEstados();
 
     /*(@Path("estados") String estados);

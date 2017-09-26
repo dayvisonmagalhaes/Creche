@@ -21,17 +21,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "http://192.168.0.115:8080/WebService/webresources/Creche/";
+    private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String teste;
-
         Gson g = new GsonBuilder().registerTypeAdapter(Estado.class,new EstadoDesc()).create();
-
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     List<Estado> estadoList = response.body();
 
                     for (Estado estado: estadoList){
-                        Log.i("ESTADO", estado.getEstadoId()+"----"+estado.getEstadoNome());
+                        Log.i("ESTADO", estado.getId()+"----"+estado.getNome());
                         Log.i("ESTADO","-------------------------------");
                     }
 
