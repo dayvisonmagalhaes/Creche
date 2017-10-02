@@ -17,6 +17,10 @@ public interface IRetrofitCreche {
     @GET("Estado/listar")
     Call <List<Estado>> getEstados();
 
+    @GET("Pessoa/login/{email},{senha})")
+    Call<Pessoa> login(@Path("email") String email, @Path("senha") String senha);
+
+
     /*(@Path("estados") String estados);
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.github.com/")
