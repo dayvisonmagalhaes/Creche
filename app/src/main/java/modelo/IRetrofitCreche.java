@@ -17,8 +17,13 @@ public interface IRetrofitCreche {
     @GET("Estado/listar")
     Call <List<Estado>> getEstados();
 
-    @GET("Pessoa/login/{email},{senha})")
+    @GET("Pessoa/login/{email},{senha}")
     Call<Pessoa> login(@Path("email") String email, @Path("senha") String senha);
+
+
+
+    @GET("Pessoa/listar")
+    Call <List<Pessoa>> getPessoas();
 
 
     /*(@Path("estados") String estados);
