@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 */
 
 
-        //CÓDIGO ESTADO
+        //CÓDIGO ESTADOs
 
 
 
