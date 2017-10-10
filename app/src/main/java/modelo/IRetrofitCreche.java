@@ -20,6 +20,8 @@ public interface IRetrofitCreche {
     @GET("Pessoa/login/{email},{senha}")
     Call<Pessoa> login(@Path("email") String email, @Path("senha") String senha);
 
+    @GET("Pessoa/verificaLogin/{email},{senha}")
+    Call<Boolean> verificaLogin(@Path("email") String email, @Path("senha") String senha);
 
 
     @GET("Pessoa/listar")

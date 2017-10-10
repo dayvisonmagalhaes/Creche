@@ -132,13 +132,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
 
-
         //CÓDIGO PESSOA - LOGIN
-
-
-
-
-
 
 
         //CÓDIGO PESSOA - LISTAR
@@ -169,59 +163,67 @@ public class MainActivity extends AppCompatActivity {
             }
         }); */
 
-       btnLogar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        btnLogar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               Gson g = new GsonBuilder().registerTypeAdapter(Pessoa.class, new PessoaDesc()).create();
+                Gson g = new GsonBuilder().registerTypeAdapter(Pessoa.class, new PessoaDesc()).create();
 
-               Retrofit retrofit = new Retrofit.Builder()
-                       .baseUrl(BASE_URL)
-                       .addConverterFactory(GsonConverterFactory.create(g))
-                       .build();
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create(g))
+                        .build();
 
-               IRetrofitCreche service = retrofit.create(IRetrofitCreche.class);
-
-
-               String email = editTextEmail.getText().toString();
-               String senha = editTextSenha.getText().toString();
-
-               final Call<Pessoa> pessoaCall = service.login(email,senha);
-
-               pessoaCall.enqueue(new Callback<Pessoa>()
-
-               {
-                   @Override
-                   public void onResponse(Call<Pessoa> call, Response <Pessoa> response) {
-                       if (response.isSuccessful()) {
-
-                           Pessoa pessoaLogin;
-                           pessoaLogin = response.body();
-
-                           //editTextEmail.setText(pessoaLogin.getEmail());
+                IRetrofitCreche service = retrofit.create(IRetrofitCreche.class);
 
 
-                           //Toast.makeText(getApplicationContext(), pessoaLogin.getNome().toString(),Toast.LENGTH_LONG).show();
+                String email = editTextEmail.getText().toString();
+                String senha = editTextSenha.getText().toString();
+
+                //final Call<Pessoa> pessoaCall = service.login(email,senha);
+
+                Call<Boolean> login = service.verificaLogin(email, senha);
+
+                login.enqueue(new Callback<Boolean>() {
 
 
-                           Log.i("PES", pessoaLogin.getId() + "----" + pessoaLogin.getNome());
-                           Log.i("PES", "-------------------------------");
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body()){
+                                Toast.makeText(getApplicationContext(), "Login com sucesso", Toast.LENGTH_LONG).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
+                            }
 
 
-                       } else {
-                           Toast.makeText(getApplicationContext(), "Erro: " + response.code(), Toast.LENGTH_LONG).show();
-                       }
-                   }
 
-                   @Override
-                   public void onFailure(Call<Pessoa> call, Throwable t) {
-                       Toast.makeText(getApplicationContext(), "Erros: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                   }
-               });
-           }
-       });
+                            //editTextEmail.setText(pessoaLogin.getEmail());
+
+
+                            //Toast.makeText(getApplicationContext(), pessoaLogin.getNome().toString(),Toast.LENGTH_LONG).show();
+
+
+                            //Log.i("PES", pessoaLogin.getId() + "----" + pessoaLogin.getNome());
+                            // Log.i("PES", "-------------------------------");
+
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Erro:" +response.code(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Erros: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+
+
+        });
 
     }
-
-
 }
+
