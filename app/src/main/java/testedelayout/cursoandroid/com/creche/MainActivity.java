@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                             if (response.body()){
                                 Toast.makeText(getApplicationContext(), "Login com sucesso", Toast.LENGTH_LONG).show();
                             }else{
-                                Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
                             }
 
 
