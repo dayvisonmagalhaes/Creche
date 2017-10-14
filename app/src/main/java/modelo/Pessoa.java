@@ -7,7 +7,6 @@ package modelo;
 public class Pessoa {
 
     private int id;
-    private double matricula;
     private String nome;
     private String rua;
     private String complemento;
@@ -25,9 +24,8 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int id, double matricula, String nome, String rua, String complemento, int numero, int cep, String cpf, byte[] foto, String celular, String sexo, String email, String senha, int TipoPessoa, int bairroId) {
+    public Pessoa(int id, String nome, String rua, String complemento, int numero, int cep, String cpf, byte[] foto, String celular, String sexo, String email, String senha, int TipoPessoa, int bairroId) {
         this.id = id;
-        this.matricula = matricula;
         this.nome = nome;
         this.rua = rua;
         this.complemento = complemento;
@@ -49,14 +47,6 @@ public class Pessoa {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public double getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(double matricula) {
-        this.matricula = matricula;
     }
 
     public String getNome() {
