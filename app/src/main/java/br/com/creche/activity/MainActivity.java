@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             String email = "";
                             String senha = "";
+                            int id = 0;
 
                             if (pessoa == null) {
                                 Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
@@ -151,8 +152,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 senha = editTextSenha.getText().toString();
 
+                                id = pessoa.getId();
+
                                 bundle.putString("email", email);
                                 bundle.putString("senha", senha);
+                                bundle.putInt("id",id);
 
                                 intent.putExtras(bundle);
 
