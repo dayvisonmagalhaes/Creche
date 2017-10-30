@@ -1,4 +1,4 @@
-package modelo;
+package br.com.creche.modelo;
 
 
 import java.io.Serializable;

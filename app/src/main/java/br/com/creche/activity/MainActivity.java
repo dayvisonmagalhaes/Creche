@@ -3,21 +3,17 @@ package br.com.creche.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.List;
-
-import modelo.IRetrofitCreche;
-import modelo.Pessoa;
-import modelo.PessoaDesc;
+import br.com.creche.modelo.IRetrofitCreche;
+import br.com.creche.modelo.Pessoa;
+import br.com.creche.modelo.PessoaDesc;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

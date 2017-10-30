@@ -1,4 +1,4 @@
-package modelo;
+package br.com.creche.modelo;
 
 /**
  * Created by u6390869 on 26/10/2017.

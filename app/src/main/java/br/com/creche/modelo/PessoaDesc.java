@@ -1,4 +1,4 @@
-package modelo;
+package br.com.creche.modelo;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
@@ -9,10 +9,11 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- * Created by u6390869 on 10/09/2017.
+ * Created by u6390869 on 01/10/2017.
  */
 
-public class EstadoDesc implements JsonDeserializer  {
+public class PessoaDesc implements JsonDeserializer {
+
     @Override
     public Object deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonElement element = json.getAsJsonObject();
@@ -20,6 +21,6 @@ public class EstadoDesc implements JsonDeserializer  {
             element = json.getAsJsonObject();
         }
 
-        return (new Gson().fromJson(element,Estado.class));
+        return (new Gson().fromJson(element,Pessoa.class));
     }
 }
