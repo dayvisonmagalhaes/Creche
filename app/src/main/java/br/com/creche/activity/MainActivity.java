@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogar;
     String email = "";
     String senha = "";
+    public Pessoa pessoaLogin = new Pessoa();
+    public int idLogin = 0;
 
-    Gson g = new Gson();
+            Gson g = new Gson();
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -122,9 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
                 final Call<Pessoa> pessoaCall = service.login(email, senha);
 
-                //Call<Boolean> login = service.verificaLogin(email, senha);
-
-                //login.enqueue(new Callback<Boolean>() {
                 pessoaCall.enqueue(new Callback<Pessoa>() {
 
 
@@ -132,27 +131,35 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Pessoa> call, Response<Pessoa> response) {
                         if (response.isSuccessful()) {
 
-                            Pessoa pessoa = response.body();
+                            pessoaLogin = response.body();
                             Intent intent = new Intent(MainActivity.this, ProfessorActivity.class);
                             Bundle bundle = new Bundle();
                             String email = "";
                             String senha = "";
-                            int id = 0;
 
-                            if (pessoa == null) {
+
+                            //
+                            if (pessoaLogin == null) {
                                 Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
-                            } else if (pessoa.getTipoPessoa() == 2) {
+
+                                //TESTA PARA VER O TIPO DE PESSOA:
+                                // 1 Administrador,
+                                // 2 Professor,
+                                // 3 Aluno,
+                                // 4 Funcionário,
+                                // 5 Responsável
+                            } else if (pessoaLogin.getTipoPessoa() == 2) {
 
 
                                 email = editTextEmail.getText().toString();
 
                                 senha = editTextSenha.getText().toString();
 
-                                id = pessoa.getId();
+                                idLogin = pessoaLogin.getId();
 
                                 bundle.putString("email", email);
                                 bundle.putString("senha", senha);
-                                bundle.putInt("id",id);
+                                bundle.putInt("id",idLogin);
 
                                 intent.putExtras(bundle);
 
