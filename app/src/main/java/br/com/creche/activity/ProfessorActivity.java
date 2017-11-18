@@ -38,12 +38,10 @@ public class ProfessorActivity extends AppCompatActivity {
     private ArrayList<String> turmas;
     private Toolbar toolbar;
 
-
+    Bundle bundle = new Bundle();
 
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
-    MainActivity mainActivity;
-    int idLogin = mainActivity.idLogin;
 
 
     /*private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
@@ -56,9 +54,12 @@ public class ProfessorActivity extends AppCompatActivity {
             .build();
 
     IRetrofitCreche service = retrofit.create(IRetrofitCreche.class);
+
 */
 
+    public ProfessorActivity(){
 
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,20 +80,28 @@ public class ProfessorActivity extends AppCompatActivity {
         //Configurar o Adapter
         TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
 
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id",-1);
+
         viewPager.setAdapter(tabAdapter);
+
 
         slidingTabLayout.setViewPager(viewPager);
 
 
+
+
+
+
         //Recupera o ID da Pessoa que foi passada atavés da Activity Main, caso não encontrado o valor default (-1) será atraibuído.
 
-
-      /*  turmas = new ArrayList<>();
+/*
+        turmas = new ArrayList<>();
 
         new GsonBuilder().registerTypeAdapter(TipoTurma.class, new TipoTurmaDesc()).create();
 
 
-        final Call<List<TipoTurma>> tipoTurmaCall = service.getTipoTurmaProfessor(idLogin);
+        final Call<List<TipoTurma>> tipoTurmaCall = service.getTipoTurmaProfessor(id);
 
         tipoTurmaCall.enqueue(new Callback<List<TipoTurma>>() {
             @Override
@@ -133,12 +142,12 @@ public class ProfessorActivity extends AppCompatActivity {
 
         );
         listView.setAdapter(adapter);
-*/
+
         //Recuperar turmas para o professor
 
 
 
-    }
+   */ }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,7 +165,7 @@ public class ProfessorActivity extends AppCompatActivity {
                 deslogarUsuario();
                 return true;
             //case R.id.item_configuracoes:
-              //  return true;
+            //  return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
