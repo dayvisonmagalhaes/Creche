@@ -89,13 +89,13 @@ public class ProfessorActivity extends AppCompatActivity {
         slidingTabLayout.setViewPager(viewPager);
 
 
-
+/*
 
 
 
         //Recupera o ID da Pessoa que foi passada atavés da Activity Main, caso não encontrado o valor default (-1) será atraibuído.
 
-/*
+
         turmas = new ArrayList<>();
 
         new GsonBuilder().registerTypeAdapter(TipoTurma.class, new TipoTurmaDesc()).create();

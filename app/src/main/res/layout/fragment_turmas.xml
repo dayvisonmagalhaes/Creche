@@ -7,14 +7,11 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <!--<ListView
+        <ListView
         android:id="@+id/lv_turmas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top"/>-->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Turmas" />
+        android:layout_gravity="center_horizontal|top"/>
+
+
 </FrameLayout>

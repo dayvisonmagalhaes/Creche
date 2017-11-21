@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     String email = "";
     String senha = "";
     public Pessoa pessoaLogin = new Pessoa();
-    public int idLogin = 0;
+    public int idLogin;
 
             Gson g = new Gson();
 
