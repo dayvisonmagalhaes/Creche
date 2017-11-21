@@ -19,6 +19,7 @@ import java.util.List;
 
 import br.com.creche.activity.MainActivity;
 import br.com.creche.modelo.IRetrofitCreche;
+import br.com.creche.modelo.Pessoa;
 import br.com.creche.modelo.TipoTurma;
 import br.com.creche.modelo.TipoTurmaDesc;
 import retrofit2.Call;
@@ -36,7 +37,7 @@ public class TurmasFragment extends Fragment {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> turmas;
-    private int idProfessorLogado;
+    private int idProfessorLogado = 0;
 
     public MainActivity idPessoaLogado = new MainActivity();
 
@@ -63,7 +64,8 @@ public class TurmasFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         //Recupera o ID da Pessoa (Professor) que logou no sistema.
-        idProfessorLogado = 3;
+
+        idProfessorLogado = MainActivity.idLogin ;
 
         turmas = new ArrayList<>();
 
@@ -78,22 +80,19 @@ public class TurmasFragment extends Fragment {
 
                 if (response.isSuccessful()) {
 
+                    List<TipoTurma> tipoTurmasList = response.body();
+
                     //Limpa lista
                     turmas.clear();
-
-                    List<TipoTurma> tipoTurmasList = response.body();
 
                     if (tipoTurmasList != null) {
 
                         for (TipoTurma tipoTurma : tipoTurmasList) {
 
-
                             turmas.add(tipoTurma.getNome());
-                            //turmas.add(tipoTurma.getDescricao());
-                            Log.i("TIPO_TURMA", turmas.get(0) + "----" );
-                            Log.i("TIPO_TURMA", "-------------------------------");
 
                         }
+                        
                     }else{
                         Toast.makeText(getActivity(), "Erro: Não há turmas alocadas para o Professor", Toast.LENGTH_LONG).show();
                     }

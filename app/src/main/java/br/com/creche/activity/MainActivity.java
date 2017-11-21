@@ -3,6 +3,7 @@ package br.com.creche.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     String email = "";
     String senha = "";
     public Pessoa pessoaLogin = new Pessoa();
-    public int idLogin;
+    public static int idLogin;
 
             Gson g = new Gson();
 
@@ -156,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
                                 senha = editTextSenha.getText().toString();
 
                                 idLogin = pessoaLogin.getId();
+                                Log.i("MainActivity_idLogin",idLogin+"");
 
                                 bundle.putString("email", email);
                                 bundle.putString("senha", senha);
