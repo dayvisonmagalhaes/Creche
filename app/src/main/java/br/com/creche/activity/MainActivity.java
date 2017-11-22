@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public Pessoa pessoaLogin = new Pessoa();
     public static int idLogin;
 
-            Gson g = new Gson();
+    Gson g = new Gson();
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -133,13 +133,12 @@ public class MainActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
 
                             pessoaLogin = response.body();
-                            Intent intent = new Intent(MainActivity.this, ProfessorActivity.class);
-                            Bundle bundle = new Bundle();
-                            String email = "";
-                            String senha = "";
+
+                            //Intent intent = new Intent(MainActivity.this, ProfessorActivity.class);
+
+                            Intent intent;
 
 
-                            //
                             if (pessoaLogin == null) {
                                 Toast.makeText(getApplicationContext(), "Login ou email com erro", Toast.LENGTH_LONG).show();
 
@@ -151,24 +150,13 @@ public class MainActivity extends AppCompatActivity {
                                 // 5 Responsável
                             } else if (pessoaLogin.getTipoPessoa() == 2) {
 
-
-                                email = editTextEmail.getText().toString();
-
-                                senha = editTextSenha.getText().toString();
+                                intent = new Intent(MainActivity.this, ProfessorActivity.class);
 
                                 idLogin = pessoaLogin.getId();
-                                Log.i("MainActivity_idLogin",idLogin+"");
-
-                                bundle.putString("email", email);
-                                bundle.putString("senha", senha);
-                                bundle.putInt("id",idLogin);
-
-                                intent.putExtras(bundle);
 
                                 startActivity(intent);
 
-
-                            }else{
+                            } else {
                                 Toast.makeText(getApplicationContext(), "Não é Professor", Toast.LENGTH_LONG).show();
                             }
 

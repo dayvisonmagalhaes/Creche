@@ -1,12 +1,14 @@
 package br.com.creche.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,7 +19,9 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.creche.activity.AlunoActivity;
 import br.com.creche.activity.MainActivity;
+import br.com.creche.activity.TesteActivity;
 import br.com.creche.modelo.IRetrofitCreche;
 import br.com.creche.modelo.Pessoa;
 import br.com.creche.modelo.TipoTurma;
@@ -63,7 +67,10 @@ public class TurmasFragment extends Fragment {
 
         //Recupera o ID da Pessoa (Professor) que logou no sistema.
 
-        idProfessorLogado = MainActivity.idLogin ;
+        //idProfessorLogado = MainActivity.idLogin ;
+
+        //SOMENTE PARA TESTES (AGILIZAR), PARA NÃO FICAR LOGANDO COM E-MAIL E SENHA
+        idProfessorLogado = 3;
 
         turmas = new ArrayList<>();
 
@@ -124,7 +131,19 @@ public class TurmasFragment extends Fragment {
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(getActivity(),AlunoActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
+
+
 
 }

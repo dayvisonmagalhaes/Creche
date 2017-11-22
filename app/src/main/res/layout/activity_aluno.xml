@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.creche.activity.AlunoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include android:id="@+id/toolbarprofessor"
+        layout="@layout/toolbarprofessorsair"/>
+
+
+    <br.com.creche.helper.SlidingTabLayout
+        android:id="@+id/stl_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+    </br.com.creche.helper.SlidingTabLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pagina"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"    />
+
+</LinearLayout>

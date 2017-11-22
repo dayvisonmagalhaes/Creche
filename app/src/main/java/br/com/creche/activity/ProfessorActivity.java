@@ -9,33 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.creche.Adapter.TabAdapter;
+import br.com.creche.Adapter.TabAdapterProfessor;
 import br.com.creche.helper.SlidingTabLayout;
-import br.com.creche.modelo.IRetrofitCreche;
-import br.com.creche.modelo.TipoTurma;
-import br.com.creche.modelo.TipoTurmaDesc;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import testedelayout.cursoandroid.com.creche.R;
 
 public class ProfessorActivity extends AppCompatActivity {
 
-    private ListView listView;
-    private ArrayAdapter adapter;
-    private ArrayList<String> turmas;
     private Toolbar toolbar;
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
@@ -64,9 +44,9 @@ public class ProfessorActivity extends AppCompatActivity {
 
 
         //Configurar o Adapter
-        TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
+        TabAdapterProfessor tabAdapterProfessor = new TabAdapterProfessor(getSupportFragmentManager());
 
-        viewPager.setAdapter(tabAdapter);
+        viewPager.setAdapter(tabAdapterProfessor);
 
 
         slidingTabLayout.setViewPager(viewPager);

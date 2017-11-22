@@ -12,11 +12,11 @@ import br.com.creche.fragment.TurmasFragment;
  * Created by u6390869 on 29/10/2017.
  */
 
-public class TabAdapter extends FragmentStatePagerAdapter {
+public class TabAdapterProfessor extends FragmentStatePagerAdapter {
 
     private String[] tituloAbas = {"TURMAS","AVISOS", "CALENDÁRIO"};
 
-    public TabAdapter(FragmentManager fm) {
+    public TabAdapterProfessor(FragmentManager fm) {
         super(fm);
     }
 
