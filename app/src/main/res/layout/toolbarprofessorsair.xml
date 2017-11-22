@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     android:minHeight="?attr/actionBarSize"
+    android:textAlignment="center"
+    android:subtitleTextColor="@color/colorTabsFragmentProfessor"
 
 
     android:theme="@style/ProfessorTheme" />

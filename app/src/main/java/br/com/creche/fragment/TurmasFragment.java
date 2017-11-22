@@ -39,8 +39,6 @@ public class TurmasFragment extends Fragment {
     private ArrayList<String> turmas;
     private int idProfessorLogado = 0;
 
-    public MainActivity idPessoaLogado = new MainActivity();
-
     private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
 
     Gson g = new Gson();
@@ -74,6 +72,22 @@ public class TurmasFragment extends Fragment {
 
         final Call<List<TipoTurma>> tipoTurmaCall = service.getTipoTurmaProfessor(idProfessorLogado);
 
+
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_turmas, container, false);
+
+        //Monta ListView e adapter
+        listView = (ListView) view.findViewById(R.id.lv_turmas);
+        adapter = new ArrayAdapter<>(
+                getActivity(),
+                R.layout.lista_turma,
+                turmas
+
+        );
+
+        listView.setAdapter( adapter );
+
         tipoTurmaCall.enqueue(new Callback<List<TipoTurma>>() {
             @Override
             public void onResponse(Call<List<TipoTurma>> call, Response<List<TipoTurma>> response) {
@@ -92,10 +106,12 @@ public class TurmasFragment extends Fragment {
                             turmas.add(tipoTurma.getNome());
 
                         }
-                        
+
                     }else{
                         Toast.makeText(getActivity(), "Erro: Não há turmas alocadas para o Professor", Toast.LENGTH_LONG).show();
                     }
+
+                    adapter.notifyDataSetChanged();
 
                 }else {
                     Toast.makeText(getActivity(), "Erro: " + response.code(), Toast.LENGTH_LONG).show();
@@ -108,19 +124,6 @@ public class TurmasFragment extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_turmas, container, false);
-
-        //Monta ListView e adapter
-        listView = (ListView) view.findViewById(R.id.lv_turmas);
-        adapter = new ArrayAdapter<>(
-                getActivity(),
-                R.layout.lista_turma,
-                turmas
-
-        );
-
-        listView.setAdapter( adapter );
         return view;
     }
 

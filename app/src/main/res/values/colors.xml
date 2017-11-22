@@ -6,4 +6,7 @@
     <color name="colorItemBackground">#64B5F6</color>
     <color name="colorBotaoNormal">#3F51B5</color>
     <color name="colorBotaoPressionado">#9FA8DA</color>
+    <color name="colorDivisorListView">#cfbfbf</color>
+    <color name="colorTabsFragmentProfessor">#ffffff</color>
+
 </resources>

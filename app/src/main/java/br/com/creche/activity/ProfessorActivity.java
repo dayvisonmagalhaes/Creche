@@ -37,27 +37,11 @@ public class ProfessorActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private ArrayList<String> turmas;
     private Toolbar toolbar;
-
-    Bundle bundle = new Bundle();
-
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
 
 
-    /*private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
-
-    Gson g = new Gson();
-
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(g))
-            .build();
-
-    IRetrofitCreche service = retrofit.create(IRetrofitCreche.class);
-
-*/
-
-    public ProfessorActivity(){
+    public ProfessorActivity() {
 
     }
 
@@ -68,6 +52,7 @@ public class ProfessorActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbarprofessor);
         toolbar.setTitle("Professor");
+
         setSupportActionBar(toolbar);
 
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.stl_tabs);
@@ -75,79 +60,17 @@ public class ProfessorActivity extends AppCompatActivity {
 
         //Configurar Slidin Tabs
         slidingTabLayout.setDistributeEvenly(true);
-        slidingTabLayout.setSelectedIndicatorColors(ContextCompat.getColor(this,R.color.colorAccent));
+        slidingTabLayout.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.colorAccent));
+
 
         //Configurar o Adapter
         TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
-
-        Intent intent = getIntent();
-        int id = intent.getIntExtra("id",-1);
 
         viewPager.setAdapter(tabAdapter);
 
 
         slidingTabLayout.setViewPager(viewPager);
-
-
-/*
-
-
-
-        //Recupera o ID da Pessoa que foi passada atavés da Activity Main, caso não encontrado o valor default (-1) será atraibuído.
-
-
-        turmas = new ArrayList<>();
-
-        new GsonBuilder().registerTypeAdapter(TipoTurma.class, new TipoTurmaDesc()).create();
-
-
-        final Call<List<TipoTurma>> tipoTurmaCall = service.getTipoTurmaProfessor(id);
-
-        tipoTurmaCall.enqueue(new Callback<List<TipoTurma>>() {
-            @Override
-            public void onResponse(Call<List<TipoTurma>> call, Response<List<TipoTurma>> response) {
-
-                if (response.isSuccessful()) {
-
-                    List<TipoTurma> tipoTurmasList = response.body();
-
-                    if (tipoTurmasList != null) {
-
-                    for (TipoTurma tipoTurma : tipoTurmasList) {
-                        turmas.add(tipoTurma.getNome());
-                    }
-                }else{
-                        Toast.makeText(getApplicationContext(), "Erro: Não há turmas alocadas para o Professor", Toast.LENGTH_LONG).show();
-                    }
-
-                }else {
-                    Toast.makeText(getApplicationContext(), "Erro: " + response.code(), Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<TipoTurma>> call, Throwable t) {
-
-            }
-        });
-
-
-        //Monta Listview e adapter
-        listView = (ListView) findViewById(R.id.lv_turmas);
-
-        adapter = new ArrayAdapter(
-                getApplicationContext(),
-                R.layout.lista_turma,
-                turmas
-
-        );
-        listView.setAdapter(adapter);
-
-        //Recuperar turmas para o professor
-
-
-
-   */ }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -160,7 +83,7 @@ public class ProfessorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item_sair:
                 deslogarUsuario();
                 return true;
@@ -172,8 +95,8 @@ public class ProfessorActivity extends AppCompatActivity {
 
     }
 
-    public void deslogarUsuario(){
-        Intent intent = new Intent(ProfessorActivity.this,MainActivity.class);
+    public void deslogarUsuario() {
+        Intent intent = new Intent(ProfessorActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

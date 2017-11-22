@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name="br.com.creche.activity.ProfessorActivity" />
-        <activity android:name="br.com.creche.activity.TesteActivity"></activity>
+        <activity android:name="br.com.creche.activity.TesteActivity" />
+        <activity android:name="br.com.creche.activity.AlunoActivity"></activity>
     </application>
 
 </manifest>
