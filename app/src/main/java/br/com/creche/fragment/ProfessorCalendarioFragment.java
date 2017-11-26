@@ -12,10 +12,10 @@ import testedelayout.cursoandroid.com.creche.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CalendarioFragment extends Fragment {
+public class ProfessorCalendarioFragment extends Fragment {
 
 
-    public CalendarioFragment() {
+    public ProfessorCalendarioFragment() {
         // Required empty public constructor
     }
 

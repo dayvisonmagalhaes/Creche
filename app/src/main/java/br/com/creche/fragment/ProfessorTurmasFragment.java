@@ -4,7 +4,6 @@ package br.com.creche.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.creche.activity.AlunoActivity;
-import br.com.creche.activity.MainActivity;
-import br.com.creche.activity.TesteActivity;
-import br.com.creche.modelo.IRetrofitCreche;
-import br.com.creche.modelo.Pessoa;
+import br.com.creche.interfacce.IRetrofitCreche;
+import br.com.creche.modelo.Aluno;
 import br.com.creche.modelo.TipoTurma;
-import br.com.creche.modelo.TipoTurmaDesc;
+import br.com.creche.Deserializer.TipoTurmaDesc;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,12 +33,15 @@ import testedelayout.cursoandroid.com.creche.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TurmasFragment extends Fragment {
+public class ProfessorTurmasFragment extends Fragment {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
+    //private ArrayList<TipoTurma> listaTipoTurma;
     private ArrayList<String> turmas;
     private int idProfessorLogado = 0;
+    public static int idTurmaSelecionada;
+
 
     private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
 
@@ -56,7 +56,7 @@ public class TurmasFragment extends Fragment {
 
 
 
-    public TurmasFragment() {
+    public ProfessorTurmasFragment() {
         // Required empty public constructor
     }
 
@@ -76,10 +76,7 @@ public class TurmasFragment extends Fragment {
 
         new GsonBuilder().registerTypeAdapter(TipoTurma.class, new TipoTurmaDesc()).create();
 
-
         final Call<List<TipoTurma>> tipoTurmaCall = service.getTipoTurmaProfessor(idProfessorLogado);
-
-
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_turmas, container, false);
@@ -90,7 +87,6 @@ public class TurmasFragment extends Fragment {
                 getActivity(),
                 R.layout.lista_turma,
                 turmas
-
         );
 
         listView.setAdapter( adapter );
@@ -108,9 +104,11 @@ public class TurmasFragment extends Fragment {
 
                     if (tipoTurmasList != null) {
 
-                        for (TipoTurma tipoTurma : tipoTurmasList) {
+                        for (TipoTurma dados : tipoTurmasList) {
 
-                            turmas.add(tipoTurma.getNome());
+                            turmas.add(dados.getNome());
+
+                            //listaTipoTurma.add(dados);
 
                         }
 
@@ -136,6 +134,19 @@ public class TurmasFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 Intent intent = new Intent(getActivity(),AlunoActivity.class);
+
+                //recupera dados a serem passados
+
+                idTurmaSelecionada = i;
+
+                //TipoTurma tipoTurma = listaTipoTurma.get(i);
+
+                String posicaoTurma = String.valueOf( adapterView.getItemAtPosition(i));
+
+                //Enviando dados para a AlunoActivity
+
+                intent.putExtra("posicaoTurma", posicaoTurma);
+                //intent.putExtra("posicaoTurma", tipoTurma.getNome());
 
                 startActivity(intent);
             }

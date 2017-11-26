@@ -5,9 +5,13 @@
     tools:context="br.com.creche.fragment.AlunosAlunosFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/lv_alunos"
         android:layout_width="match_parent"
+        android:divider="@color/colorDivisorListView"
+        android:dividerHeight="2dp"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="center_horizontal|top"/>
+
 
 </FrameLayout>

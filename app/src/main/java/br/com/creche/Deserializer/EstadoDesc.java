@@ -1,4 +1,4 @@
-package br.com.creche.modelo;
+package br.com.creche.Deserializer;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
@@ -7,6 +7,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
+
+import br.com.creche.modelo.Estado;
 
 /**
  * Created by u6390869 on 10/09/2017.

@@ -21,7 +21,16 @@
         </activity>
         <activity android:name="br.com.creche.activity.MainActivity" />
         <activity android:name="br.com.creche.activity.TesteActivity" />
-        <activity android:name="br.com.creche.activity.AlunoActivity"></activity>
+        <activity
+            android:name="br.com.creche.activity.AlunoActivity"
+            android:parentActivityName="br.com.creche.activity.ProfessorActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.creche.activity.ProfessorActivity">
+
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

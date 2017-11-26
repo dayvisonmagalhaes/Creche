@@ -7,6 +7,7 @@ package br.com.creche.modelo;
 public class Aluno {
 
     private int turmaId;
+    private String nome;
     private double escolaCNPJ;
     private int pessoaId;
     private double matricula;
@@ -14,20 +15,28 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(int turmaId, double escolaCNPJ, int pessoaId, double matricula) {
+    public Aluno(int turmaId, String nome, double escolaCNPJ, int pessoaId, double matricula) {
         this.turmaId = turmaId;
+        this.nome = nome;
         this.escolaCNPJ = escolaCNPJ;
         this.pessoaId = pessoaId;
         this.matricula = matricula;
     }
 
-    //ATALHO PARA GERAR GET E SET: Alt + Insert
     public int getTurmaId() {
         return turmaId;
     }
 
     public void setTurmaId(int turmaId) {
         this.turmaId = turmaId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getEscolaCNPJ() {

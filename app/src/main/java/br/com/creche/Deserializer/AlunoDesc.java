@@ -1,4 +1,4 @@
-package br.com.creche.modelo;
+package br.com.creche.Deserializer;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;
@@ -8,11 +8,14 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 
+import br.com.creche.modelo.Aluno;
+
+
 /**
- * Created by u6390869 on 26/10/2017.
+ * Created by u6390869 on 25/11/2017.
  */
 
-public class TipoTurmaDesc implements JsonDeserializer {
+public class AlunoDesc implements JsonDeserializer {
 
     @Override
     public Object deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
@@ -21,6 +24,6 @@ public class TipoTurmaDesc implements JsonDeserializer {
             element = json.getAsJsonObject();
         }
 
-        return (new Gson().fromJson(element,TipoTurma.class));
+        return (new Gson().fromJson(element,Aluno.class));
     }
 }

@@ -19,6 +19,8 @@ public class AlunoActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
+    private  String nomeTurma;
+
 
 
     @Override
@@ -27,7 +29,16 @@ public class AlunoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aluno);
 
         toolbar = (Toolbar) findViewById(R.id.toolbarprofessor);
-        toolbar.setTitle("Alunos");
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null){
+            nomeTurma = extras.getString("posicaoTurma");
+        }
+
+        //Configurar toobar
+        toolbar.setTitle("Alunos do " + nomeTurma);
+        toolbar.setNavigationIcon(R.drawable.ic_action_arrow_left);
 
         setSupportActionBar(toolbar);
 

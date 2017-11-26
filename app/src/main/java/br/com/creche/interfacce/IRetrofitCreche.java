@@ -1,7 +1,11 @@
-package br.com.creche.modelo;
+package br.com.creche.interfacce;
 
 import java.util.List;
 
+import br.com.creche.modelo.Aluno;
+import br.com.creche.modelo.Estado;
+import br.com.creche.modelo.Pessoa;
+import br.com.creche.modelo.TipoTurma;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -24,6 +28,9 @@ public interface IRetrofitCreche {
 
     @GET("TipoTurma/listarPorProfessor/{id}")
     Call <List<TipoTurma>> getTipoTurmaProfessor(@Path("id") int id);
+
+    @GET("Alunos/listarAlunos/{id}")
+    Call <List<Aluno>> getListarAlunos(@Path("id") int id);
 
     @GET("Pessoa/listar")
     Call <List<Pessoa>> getPessoas();
