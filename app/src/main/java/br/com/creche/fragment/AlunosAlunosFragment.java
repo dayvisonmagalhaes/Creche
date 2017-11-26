@@ -18,6 +18,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.creche.Adapter.AlunosAdapter;
 import br.com.creche.Deserializer.AlunoDesc;
 import br.com.creche.Deserializer.TipoTurmaDesc;
 import br.com.creche.activity.AlunoActivity;
@@ -37,8 +38,9 @@ import testedelayout.cursoandroid.com.creche.R;
 public class AlunosAlunosFragment extends Fragment {
 
     private ListView listView;
-    private ArrayAdapter<String> adapter;
-    private ArrayList<String> alunos;
+    private ArrayAdapter<Aluno> adapter;
+    //private ArrayList<String> alunos;
+    private ArrayList<Aluno> alunos;
     List<Aluno> listaAlunos;
     private int idTurmaSelecionada = 0;
 
@@ -91,13 +93,14 @@ public class AlunosAlunosFragment extends Fragment {
 
         //Monta ListView e adapter
         listView = (ListView) view.findViewById(R.id.lv_alunos);
-        adapter = new ArrayAdapter<>(
+        /*adapter = new ArrayAdapter<>(
                 getActivity(),
                 R.layout.lista_turma,
                 alunos
 
-        );
+        );*/
 
+        adapter = new AlunosAdapter(getActivity(), alunos);
         listView.setAdapter(adapter);
 
         alunosCall.enqueue(new Callback<List<Aluno>>() {
@@ -117,11 +120,14 @@ public class AlunosAlunosFragment extends Fragment {
 
                         for (Aluno aluno : alunosList) {
 
-                            Aluno item = new Aluno();
-                            item.setPessoaId(aluno.getPessoaId());
-                            item.setNome(aluno.getNome());
-                            listaAlunos.add(item);
-                            alunos.add(aluno.getNome());
+
+                            // Aluno item = new Aluno();
+                            //item.setPessoaId(aluno.getPessoaId());
+                            //item.setNome(aluno.getNome());
+
+                            //listaAlunos.add(item);
+                            //alunos.add(aluno.getNome());
+                            alunos.add(aluno);
 
                         }
 
