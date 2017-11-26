@@ -33,7 +33,7 @@ public class AlunoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null){
-            nomeTurma = extras.getString("posicaoTurma");
+            nomeTurma = extras.getString("nomeTurma");
         }
 
         //Configurar toobar

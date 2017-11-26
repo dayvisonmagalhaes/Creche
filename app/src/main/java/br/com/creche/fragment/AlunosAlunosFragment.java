@@ -39,8 +39,9 @@ public class AlunosAlunosFragment extends Fragment {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> alunos;
-    //private ArrayList<Aluno> ListaAlunos;
+    List<Aluno> listaAlunos;
     private int idTurmaSelecionada = 0;
+
 
     private static final String BASE_URL = "http://192.168.0.115:8080/WebServiceCreche/webresources/Creches/";
 
@@ -69,6 +70,13 @@ public class AlunosAlunosFragment extends Fragment {
 
         //SOMENTE PARA TESTES (AGILIZAR), PARA NÃO FICAR LOGANDO COM E-MAIL E SENHA
         idTurmaSelecionada = ProfessorTurmasFragment.idTurmaSelecionada;
+
+        Bundle extras = getActivity().getIntent().getExtras();
+
+        if (extras != null){
+            idTurmaSelecionada = extras.getInt("idTurma");
+        }
+
 
         alunos = new ArrayList<>();
 
@@ -103,11 +111,16 @@ public class AlunosAlunosFragment extends Fragment {
                     //Limpa lista
                     alunos.clear();
 
+                    listaAlunos = new ArrayList<>();
+
                     if (alunosList != null) {
 
                         for (Aluno aluno : alunosList) {
 
-                            //ListaAlunos.add(aluno);
+                            Aluno item = new Aluno();
+                            item.setPessoaId(aluno.getPessoaId());
+                            item.setNome(aluno.getNome());
+                            listaAlunos.add(item);
                             alunos.add(aluno.getNome());
 
                         }
@@ -133,12 +146,12 @@ public class AlunosAlunosFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Intent intent = new Intent(getActivity(), AlunoActivity.class);
+               // Intent intent = new Intent(getActivity(), AlunoActivity.class);
 
 
                // Aluno aluno = ListaAlunos.get(i);
 
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 

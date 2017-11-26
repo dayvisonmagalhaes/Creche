@@ -37,7 +37,7 @@ public class ProfessorTurmasFragment extends Fragment {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
-    //private ArrayList<TipoTurma> listaTipoTurma;
+    ArrayList<TipoTurma> listaTipoTurma;
     private ArrayList<String> turmas;
     private int idProfessorLogado = 0;
     public static int idTurmaSelecionada;
@@ -102,14 +102,17 @@ public class ProfessorTurmasFragment extends Fragment {
                     //Limpa lista
                     turmas.clear();
 
+                    listaTipoTurma = new ArrayList<>();
+
                     if (tipoTurmasList != null) {
 
                         for (TipoTurma dados : tipoTurmasList) {
 
+                            TipoTurma item = new TipoTurma();
+                            item.setNome(dados.getNome());
+                            item.setId(dados.getId());
+                            listaTipoTurma.add(item);
                             turmas.add(dados.getNome());
-
-                            //listaTipoTurma.add(dados);
-
                         }
 
                     }else{
@@ -139,14 +142,14 @@ public class ProfessorTurmasFragment extends Fragment {
 
                 idTurmaSelecionada = i;
 
-                //TipoTurma tipoTurma = listaTipoTurma.get(i);
+                TipoTurma tipoTurma = listaTipoTurma.get(i);
 
-                String posicaoTurma = String.valueOf( adapterView.getItemAtPosition(i));
+                //String posicaoTurma = String.valueOf( adapterView.getItemAtPosition(i));
 
                 //Enviando dados para a AlunoActivity
 
-                intent.putExtra("posicaoTurma", posicaoTurma);
-                //intent.putExtra("posicaoTurma", tipoTurma.getNome());
+                intent.putExtra("nomeTurma", tipoTurma.getNome());
+                intent.putExtra("idTurma", tipoTurma.getId());
 
                 startActivity(intent);
             }
