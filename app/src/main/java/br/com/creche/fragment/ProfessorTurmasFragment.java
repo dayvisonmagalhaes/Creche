@@ -113,6 +113,8 @@ public class ProfessorTurmasFragment extends Fragment {
                             item.setId(dados.getId());
                             listaTipoTurma.add(item);
                             turmas.add(dados.getNome());
+
+
                         }
 
                     }else{
