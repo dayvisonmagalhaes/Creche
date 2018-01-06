@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.creche.activity.AlunoActivity;
+import br.com.creche.activity.MainActivity;
 import br.com.creche.interfacce.IRetrofitCreche;
 import br.com.creche.modelo.Aluno;
 import br.com.creche.modelo.TipoTurma;
@@ -67,10 +68,10 @@ public class ProfessorTurmasFragment extends Fragment {
 
         //Recupera o ID da Pessoa (Professor) que logou no sistema.
 
-        //idProfessorLogado = MainActivity.idLogin ;
+        idProfessorLogado = MainActivity.idLogin ;
 
         //SOMENTE PARA TESTES (AGILIZAR), PARA NÃO FICAR LOGANDO COM E-MAIL E SENHA
-        idProfessorLogado = 3;
+        //idProfessorLogado = 3;
 
         turmas = new ArrayList<>();
 
@@ -117,7 +118,7 @@ public class ProfessorTurmasFragment extends Fragment {
 
                         }
 
-                    }else{
+                    }else {
                         Toast.makeText(getActivity(), "Erro: Não há turmas alocadas para o Professor", Toast.LENGTH_LONG).show();
                     }
 

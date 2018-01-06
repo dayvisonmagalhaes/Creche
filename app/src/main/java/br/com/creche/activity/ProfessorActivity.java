@@ -19,6 +19,7 @@ public class ProfessorActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
+    private String nomeProfessor = null;
 
 
     public ProfessorActivity() {
@@ -31,7 +32,8 @@ public class ProfessorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_professor);
 
         toolbar = (Toolbar) findViewById(R.id.toolbarprofessor);
-        toolbar.setTitle("Professor");
+
+        toolbar.setTitle("Professor (a): " + MainActivity.nomeLogin);
 
         setSupportActionBar(toolbar);
 
@@ -51,6 +53,8 @@ public class ProfessorActivity extends AppCompatActivity {
 
         slidingTabLayout.setViewPager(viewPager);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -71,7 +71,7 @@ public class AlunosAlunosFragment extends Fragment {
         //idProfessorLogado = MainActivity.idLogin ;
 
         //SOMENTE PARA TESTES (AGILIZAR), PARA NÃO FICAR LOGANDO COM E-MAIL E SENHA
-        idTurmaSelecionada = ProfessorTurmasFragment.idTurmaSelecionada;
+       // idTurmaSelecionada = ProfessorTurmasFragment.idTurmaSelecionada;
 
         Bundle extras = getActivity().getIntent().getExtras();
 
@@ -131,8 +131,8 @@ public class AlunosAlunosFragment extends Fragment {
 
                         }
 
-                    } else {
-                        Toast.makeText(getActivity(), "Erro: Não há turmas alocadas para o Professor", Toast.LENGTH_LONG).show();
+                    } else if (alunos.isEmpty()){
+                        Toast.makeText(getActivity(), "Erro: Não há ALUNOS alocados para esta Turma", Toast.LENGTH_LONG).show();
                     }
 
                     adapter.notifyDataSetChanged();
