@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal|top"
         android:divider="@color/colorDivisorListView"
-        android:dividerHeight="2dp" />
+        android:dividerHeight="20dp" />
 </FrameLayout>
 
 
