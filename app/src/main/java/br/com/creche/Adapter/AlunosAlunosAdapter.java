@@ -18,12 +18,12 @@ import testedelayout.cursoandroid.com.creche.R;
  * Created by u6390869 on 26/11/2017.
  */
 
-public class AlunosAdapter extends ArrayAdapter<Aluno> {
+public class AlunosAlunosAdapter extends ArrayAdapter<Aluno> {
 
     private static DecimalFormat REAL_FORMAT = new DecimalFormat("0.###");
     private ArrayList<Aluno> alunos;
     private Context context;
-    public AlunosAdapter(@NonNull Context c, @NonNull ArrayList<Aluno> objects) {
+    public AlunosAlunosAdapter(@NonNull Context c, @NonNull ArrayList<Aluno> objects) {
         super(c, 0,objects);
         this.alunos = objects;
         this.context = c;

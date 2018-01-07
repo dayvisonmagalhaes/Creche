@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import br.com.creche.Adapter.TabAdapterProfessor;
+import br.com.creche.AdapterTab.TabAdapterProfessor;
 import br.com.creche.helper.SlidingTabLayout;
 import testedelayout.cursoandroid.com.creche.R;
 
@@ -42,7 +42,9 @@ public class ProfessorActivity extends AppCompatActivity {
 
         //Configurar Slidin Tabs
         slidingTabLayout.setDistributeEvenly(true);
+
         slidingTabLayout.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.colorAccent));
+
 
 
         //Configurar o Adapter

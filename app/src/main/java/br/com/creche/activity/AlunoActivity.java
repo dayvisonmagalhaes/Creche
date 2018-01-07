@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import br.com.creche.Adapter.TabAdapterAlunos;
+import br.com.creche.AdapterTab.TabAdapterAlunos;
 import br.com.creche.helper.SlidingTabLayout;
 import testedelayout.cursoandroid.com.creche.R;
 

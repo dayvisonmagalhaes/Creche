@@ -1,7 +1,6 @@
 package br.com.creche.fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,13 +17,10 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.creche.Adapter.AlunosAdapter;
+import br.com.creche.Adapter.AlunosAlunosAdapter;
 import br.com.creche.Deserializer.AlunoDesc;
-import br.com.creche.Deserializer.TipoTurmaDesc;
-import br.com.creche.activity.AlunoActivity;
 import br.com.creche.interfacce.IRetrofitCreche;
 import br.com.creche.modelo.Aluno;
-import br.com.creche.modelo.TipoTurma;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,7 +96,7 @@ public class AlunosAlunosFragment extends Fragment {
 
         );*/
 
-        adapter = new AlunosAdapter(getActivity(), alunos);
+        adapter = new AlunosAlunosAdapter(getActivity(), alunos);
         listView.setAdapter(adapter);
 
         alunosCall.enqueue(new Callback<List<Aluno>>() {

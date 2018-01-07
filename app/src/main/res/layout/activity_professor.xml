@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context="br.com.creche.activity.ProfessorActivity">
 
 
@@ -21,7 +22,9 @@
         android:id="@+id/stl_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+
+       >
 
     </br.com.creche.helper.SlidingTabLayout>
 
