@@ -3,6 +3,7 @@ package br.com.creche.interfacce;
 import java.util.List;
 
 import br.com.creche.modelo.Aluno;
+import br.com.creche.modelo.AlunoPresenca;
 import br.com.creche.modelo.Estado;
 import br.com.creche.modelo.Pessoa;
 import br.com.creche.modelo.TipoTurma;
@@ -31,6 +32,9 @@ public interface IRetrofitCreche {
 
     @GET("Alunos/listarAlunos/{id}")
     Call <List<Aluno>> getListarAlunos(@Path("id") int id);
+
+    @GET("Alunos/listarAlunosPresentes/{id}")
+    Call <List<AlunoPresenca>> getAlunosPresentesId(@Path("id") int id);
 
     @GET("Pessoa/listar")
     Call <List<Pessoa>> getPessoas();

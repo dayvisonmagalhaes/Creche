@@ -8,7 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="1"
         tools:context="br.com.creche.fragment.AlunosAlunosFragment">
 
         <ListView
@@ -24,7 +24,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+        android:layout_weight="5"
         tools:context="br.com.creche.fragment.AlunosAlunosFragment">
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_marginRight="30dp"
             android:text="salvar"
             android:theme="@style/botaoPadrao"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="30dp"/>
 
     </FrameLayout>
 

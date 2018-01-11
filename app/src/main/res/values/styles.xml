@@ -22,9 +22,11 @@
         <item name="colorControlHighlight">@color/colorBotaoPressionado</item>
     </style>
 
-
-
-
+    <style name="botaoPresenca" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="colorButtonNormal">@color/corBotaoPresenca</item>
+        <item name="colorControlHighlight">@color/colorBotaoPressionado</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

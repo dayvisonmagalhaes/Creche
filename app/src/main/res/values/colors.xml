@@ -8,5 +8,5 @@
     <color name="colorBotaoPressionado">#9FA8DA</color>
     <color name="colorDivisorListView">#cfbfbf</color>
     <color name="colorTabsFragmentProfessor">#ffffff</color>
-    <color name="colorBotaoSalvar">#a6a6a6</color>
+    <color name="corBotaoPresenca">#afafaf</color>
 </resources>

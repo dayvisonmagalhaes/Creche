@@ -112,22 +112,15 @@ public class AlunosAlunosFragment extends Fragment {
 
                     listaAlunos = new ArrayList<>();
 
-                    if (alunosList != null) {
+                    if (alunosList.size() != 0) {
 
                         for (Aluno aluno : alunosList) {
 
-
-                            // Aluno item = new Aluno();
-                            //item.setPessoaId(aluno.getPessoaId());
-                            //item.setNome(aluno.getNome());
-
-                            //listaAlunos.add(item);
-                            //alunos.add(aluno.getNome());
                             alunos.add(aluno);
 
                         }
 
-                    } else if (alunos.isEmpty()){
+                    } else {
                         Toast.makeText(getActivity(), "Erro: Não há ALUNOS alocados para esta Turma", Toast.LENGTH_LONG).show();
                     }
 

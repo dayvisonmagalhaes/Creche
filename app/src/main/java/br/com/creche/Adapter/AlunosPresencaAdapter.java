@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import br.com.creche.modelo.Aluno;
+import br.com.creche.modelo.AlunoPresenca;
 import testedelayout.cursoandroid.com.creche.R;
 
 /**
@@ -19,12 +20,12 @@ import testedelayout.cursoandroid.com.creche.R;
  * AlunosPresencaAdapter
  */
 
-public class AlunosPresencaAdapter extends ArrayAdapter<Aluno> {
+public class AlunosPresencaAdapter extends ArrayAdapter<AlunoPresenca> {
 
     private static DecimalFormat REAL_FORMAT = new DecimalFormat("0.###");
-    private ArrayList<Aluno> alunos;
+    private ArrayList<AlunoPresenca> alunos;
     private Context context;
-    public AlunosPresencaAdapter(@NonNull Context c, @NonNull ArrayList<Aluno> objects) {
+    public AlunosPresencaAdapter(@NonNull Context c, @NonNull ArrayList<AlunoPresenca> objects) {
         super(c, 0,objects);
         this.alunos = objects;
         this.context = c;
@@ -47,7 +48,7 @@ public class AlunosPresencaAdapter extends ArrayAdapter<Aluno> {
             TextView nomeAluno = (TextView) view.findViewById(R.id.tv_nome);
             TextView matriculaAluno = (TextView) view.findViewById(R.id.tv_matricula);
 
-            Aluno aluno = alunos.get(position);
+            AlunoPresenca aluno = alunos.get(position);
 
             nomeAluno.setText(aluno.getNome());
             matriculaAluno.setText(REAL_FORMAT.format(aluno.getMatricula()));
