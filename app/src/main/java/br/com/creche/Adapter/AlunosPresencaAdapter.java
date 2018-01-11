@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -16,7 +15,8 @@ import br.com.creche.modelo.Aluno;
 import testedelayout.cursoandroid.com.creche.R;
 
 /**
- * Created by u6390869 on 26/11/2017.
+ * Created by u6390869 on 10/01/2018.
+ * AlunosPresencaAdapter
  */
 
 public class AlunosPresencaAdapter extends ArrayAdapter<Aluno> {
@@ -32,7 +32,7 @@ public class AlunosPresencaAdapter extends ArrayAdapter<Aluno> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView,  ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         View view = null;
 
@@ -41,18 +41,16 @@ public class AlunosPresencaAdapter extends ArrayAdapter<Aluno> {
             //Inicializa objeto para montagem da view
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
-            //Monta view a partir do xml
+            //Monta view a partir do xmll
             view = inflater.inflate(R.layout.lista_aluno_presenca, parent, false);
 
             TextView nomeAluno = (TextView) view.findViewById(R.id.tv_nome);
             TextView matriculaAluno = (TextView) view.findViewById(R.id.tv_matricula);
-            CheckBox checkBoxPresenca = (CheckBox) view.findViewById(R.id.checkBoxPresenca);
 
             Aluno aluno = alunos.get(position);
 
             nomeAluno.setText(aluno.getNome());
             matriculaAluno.setText(REAL_FORMAT.format(aluno.getMatricula()));
-            checkBoxPresenca.isChecked();
 
 
         }

@@ -36,7 +36,7 @@ public class AlunoActivity extends AppCompatActivity {
             nomeTurma = extras.getString("nomeTurma");
         }
 
-        //Configurar toobarr
+        //Configurar toobar
         toolbar.setTitle("Alunos do " + nomeTurma);
         toolbar.setNavigationIcon(R.drawable.ic_action_arrow_left);
 

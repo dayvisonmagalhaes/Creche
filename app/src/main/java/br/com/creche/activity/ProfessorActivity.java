@@ -42,9 +42,7 @@ public class ProfessorActivity extends AppCompatActivity {
 
         //Configurar Slidin Tabs
         slidingTabLayout.setDistributeEvenly(true);
-
         slidingTabLayout.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.colorAccent));
-
 
 
         //Configurar o Adapter

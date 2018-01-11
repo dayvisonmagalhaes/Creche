@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.creche.activity.ProfessorActivity">
+
+
+    <include
+        android:id="@+id/toolbarprofessor"
+        layout="@layout/toolbarprofessorsair" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pagina"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <br.com.creche.helper.SlidingTabLayout
+        android:id="@+id/stl_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+    </br.com.creche.helper.SlidingTabLayout>
+
+
+</LinearLayout>
