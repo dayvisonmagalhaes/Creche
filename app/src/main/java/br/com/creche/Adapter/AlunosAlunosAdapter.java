@@ -41,7 +41,7 @@ public class AlunosAlunosAdapter extends ArrayAdapter<Aluno> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
             //Monta view a partir do xml
-            view = inflater.inflate(R.layout.lista_aluno, parent, false);
+            view = inflater.inflate(R.layout.linha_aluno, parent, false);//linha
 
             TextView nomeAluno = (TextView) view.findViewById(R.id.tv_nome);
             TextView matriculaAluno = (TextView) view.findViewById(R.id.tv_matricula);

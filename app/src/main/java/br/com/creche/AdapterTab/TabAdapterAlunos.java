@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import br.com.creche.fragment.AlunosAlunosFragment;
 import br.com.creche.fragment.AlunosAtividadesFragment;
+import br.com.creche.fragment.AlunosChamadaFragment;
 import br.com.creche.fragment.AlunosPresencaFragment;
 
 
@@ -15,7 +16,7 @@ import br.com.creche.fragment.AlunosPresencaFragment;
 
 public class TabAdapterAlunos extends FragmentStatePagerAdapter {
 
-    private String[] tituloAbas = {"ALUNOS","PRESENÇA", "ATIVIDADES"};
+    private String[] tituloAbas = {"ALUNOS","PRESENTES", "CHAMADA", "ATIVIDADES"};
 
     public TabAdapterAlunos(FragmentManager fm) {
         super(fm);
@@ -34,6 +35,9 @@ public class TabAdapterAlunos extends FragmentStatePagerAdapter {
                 fragment = new AlunosPresencaFragment();
                 break;
             case 2:
+                fragment = new AlunosChamadaFragment();
+                break;
+            case 3:
                 fragment = new AlunosAtividadesFragment();
                 break;
 

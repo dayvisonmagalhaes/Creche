@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.creche.Adapter.AlunosPresencaAdapter;
+import br.com.creche.Deserializer.AlunoDesc;
 import br.com.creche.Deserializer.AlunoPresencaDesc;
 import br.com.creche.interfacce.IRetrofitCreche;
 import br.com.creche.modelo.Aluno;
@@ -39,6 +40,7 @@ public class AlunosPresencaFragment extends Fragment {
     private ArrayAdapter<AlunoPresenca> adapter;
     //private ArrayList<String> alunos;
     private ArrayList<AlunoPresenca> alunosPresentes;
+    private ArrayList<Aluno> alunosFaltantes;
     List<Aluno> listaAlunos;
     private int idTurmaSelecionada = 0;
 
@@ -76,17 +78,10 @@ public class AlunosPresencaFragment extends Fragment {
             idTurmaSelecionada = extras.getInt("idTurma");
         }
 
-
         alunosPresentes = new ArrayList<>();
 
-        new GsonBuilder().registerTypeAdapter(AlunoPresenca.class, new AlunoPresencaDesc()).create();
-
-
-        final Call<List<AlunoPresenca>> alunosCall = service.getAlunosPresentesId(idTurmaSelecionada);
-
-
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_alunos_presenca, container, false);
+        View view = inflater.inflate(R.layout.fragment_alunos_alunos, container, false);
 
         //Monta ListView e adapter
         listView = (ListView) view.findViewById(R.id.lv_alunos);
@@ -97,51 +92,16 @@ public class AlunosPresencaFragment extends Fragment {
 
         verificaPresenca();
 
-        /*alunosCall.enqueue(new Callback<List<AlunoPresenca>>() {
-            @Override
-            public void onResponse(Call<List<AlunoPresenca>> call, Response<List<AlunoPresenca>> response) {
-
-                if (response.isSuccessful()) {
-
-                    List<AlunoPresenca> alunosList = response.body();
-
-                    //Limpa lista
-                    alunosPresentes.clear();
-
-                    //listaAlunos = new ArrayList<>();
-
-                    if (alunosList.size() != 0) {
-
-                        for (AlunoPresenca aluno : alunosList) {
-
-
-                            alunosPresentes.add(aluno);
-
-                        }
-
-                    } else {
-                        Toast.makeText(getActivity(), "Erro: A Presença ainda não foi realizada nesta data", Toast.LENGTH_LONG).show();
-                    }
-
-                    adapter.notifyDataSetChanged();
-
-                } else {
-
-                    Toast.makeText(getActivity(), "Erro: " + response.code(), Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<AlunoPresenca>> call, Throwable t) {
-
-            }
-        });*/
         return view;
     }
 
     public void verificaPresenca(){
 
+        new GsonBuilder().registerTypeAdapter(AlunoPresenca.class, new AlunoPresencaDesc()).create();
+
         final Call<List<AlunoPresenca>> alunosCall = service.getAlunosPresentesId(idTurmaSelecionada);
+
+
 
         alunosCall.enqueue(new Callback<List<AlunoPresenca>>() {
             @Override
@@ -160,13 +120,16 @@ public class AlunosPresencaFragment extends Fragment {
 
                         for (AlunoPresenca aluno : alunosList) {
 
-
                             alunosPresentes.add(aluno);
 
                         }
 
                     } else {
                         Toast.makeText(getActivity(), "Erro: A Presença ainda não foi realizada nesta data", Toast.LENGTH_LONG).show();
+
+                        //lancarFaltas();
+
+                        //new AlunosChamadaFragment();
                     }
 
                     adapter.notifyDataSetChanged();
@@ -184,8 +147,52 @@ public class AlunosPresencaFragment extends Fragment {
         });
     }
 
-    public void lancaFaltas(){
+    public void lancarFaltas(){
 
+        new GsonBuilder().registerTypeAdapter(Aluno.class, new AlunoDesc()).create();
+
+        final Call<List<Aluno>> alunosCall = service.getListarAlunos(idTurmaSelecionada);
+
+        alunosFaltantes = new ArrayList<>();
+
+        alunosCall.enqueue(new Callback<List<Aluno>>() {
+            @Override
+            public void onResponse(Call<List<Aluno>> call, Response<List<Aluno>> response) {
+
+                if (response.isSuccessful()) {
+
+                    List<Aluno> alunosList = response.body();
+
+                    //Limpa lista
+                    alunosFaltantes.clear();
+
+                    if (alunosList.size() != 0) {
+
+                        for (Aluno aluno : alunosList) {
+
+                            alunosFaltantes.add(aluno);
+
+                        }
+
+                    } else {
+                        Toast.makeText(getActivity(), "Erro: Não há ALUNOS alocados para esta Turma", Toast.LENGTH_LONG).show();
+                    }
+
+                    adapter.notifyDataSetChanged();
+
+                } else {
+                    Toast.makeText(getActivity(), "Erro: " + response.code(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Aluno>> call, Throwable t) {
+
+            }
+        });
     }
+
+
+
 
 }
